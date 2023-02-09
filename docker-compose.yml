@@ -10,6 +10,7 @@ services:
     volumes:
       - odoo-data:/var/lib/odoo
       - .:/mnt/extra-addons
+    command: --dev=all
   postgres:
     image: postgres:15.1
     env_file: .env

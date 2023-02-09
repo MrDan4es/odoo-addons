@@ -12,6 +12,47 @@
                 </xpath>
             </field>
         </record>
+
+        <!-- <record id="project_kanban_create_project" model="ir.ui.view">
+            <field name="name">project.project.kanban.create.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.project.view.form.simplified" />
+            <field name="priority">30</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_title']" position="after">
+                    <field name="project_code" placeholder="TAG" />
+                </xpath>
+            </field>
+        </record> -->
+
+        <record id="project_kanban_with_code" model="ir.ui.view">
+            <field name="name">project.project.kanban.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban" />
+            <field name="priority">30</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='o_kanban_primary_left']" position="after">
+                    <field name="project_code" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_with_code" model="ir.ui.view">
+            <field name="name">project.task.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban" />
+            <field name="priority">30</field>
+            <field name="arch" type="xml">
+                <xpath expr="//strong[@class='o_kanban_record_title']" position="before">
+                    <div
+                        t-if="record.task_uid.value"
+                        style="margin-right: 2px; color: #0007; display: inline;"
+                    > 
+                        [<field name="task_uid" />] 
+                    </div>
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>
     
