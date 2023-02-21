@@ -13,18 +13,6 @@
             </field>
         </record>
 
-        <!-- <record id="project_kanban_create_project" model="ir.ui.view">
-            <field name="name">project.project.kanban.create.form</field>
-            <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.project.view.form.simplified" />
-            <field name="priority">30</field>
-            <field name="arch" type="xml">
-                <xpath expr="//div[@class='oe_title']" position="after">
-                    <field name="project_code" placeholder="TAG" />
-                </xpath>
-            </field>
-        </record> -->
-
         <record id="project_kanban_with_code" model="ir.ui.view">
             <field name="name">project.project.kanban.inherit</field>
             <field name="model">project.project</field>
@@ -85,6 +73,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="task_uid" string="Код задачи" />
+                    <field name="task_history_ids" string="История кодов задачи" />
                 </xpath>
             </field>
         </record>

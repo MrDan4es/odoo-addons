@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_task_uid_task_history,task_uid.project.task_history,model_project_task_history,base.group_user,1,1,1,1
+access_task_uid_uid_history,task_uid.project.uid_history,model_project_uid_history,base.group_user,1,1,1,1
