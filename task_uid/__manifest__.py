@@ -1,23 +1,18 @@
 # type: ignore
 {
-    'name': 'Task UID',
+    'name': 'task_uid',
     'version': '1.0',
     'summary': '',
     'category': 'Generic Modules/Others',
     'author': 'MrDan4es',
     'maintainer': 'MrDan4es',
     'website': '',
-    'license': '',
-    'contributors': [
-        '',
-    ],
+    'license': 'GPL-3',
     'depends': [
         'project',
     ],
-    'external_dependencies': {
-
-    },
     'data': [
+        "security/ir.model.access.csv",
         'views/project_view.xml'
     ],
     'application': True,

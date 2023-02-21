@@ -53,6 +53,42 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="project_task_deatil_with_code" model="ir.ui.view">
+            <field name="name">project.task.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="priority">30</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_ids']" position="after">
+                    [<field name="task_uid" />]
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_deatil_with_code_history" model="ir.ui.view">
+            <field name="name">project.task.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="priority">30</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='task_uid']" position="after">
+                    <field name="task_history_ids" widget="many2many_tags" attrs="{'readonly': True}" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_uid_search" model="ir.ui.view" >
+            <field name="name">project.task.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="task_uid" string="Код задачи" />
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>
     
