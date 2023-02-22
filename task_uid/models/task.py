@@ -1,5 +1,4 @@
 from odoo import api, fields, models
-from typing import Union
 
 
 class Task(models.Model):
@@ -18,20 +17,13 @@ class Task(models.Model):
         'project.uid_history', 'task_id', string='История кодов'
     )
 
-    def _get_task_uid(self, project_id: int) -> Union[None, str]:
-        project = self.env['project.project'].search([('id', '=', project_id)])
-
-        if not (code := project.project_code):
-            return None
-
-        id = project.get_or_create_sequence().next_by_id()  
-
-        return f'{code}-{id:0>3}'
+    def _get_project(self, project_id):
+        return self.env['project.project'].search([('id', '=', project_id)])
 
     @api.model_create_single
     def create(self, vals):
-        vals['task_uid'] = self._get_task_uid(vals['project_id'])
-
+        vals['task_uid'] = self._get_project(vals['project_id']).get_task_uid()
+        
         return super(Task, self).create(vals)
 
     def write(self, vals: dict):
@@ -46,7 +38,7 @@ class Task(models.Model):
             })
             self.env.cr.commit()
 
-        vals['task_uid'] = self._get_task_uid(vals['project_id'])
+        vals['task_uid'] = self._get_project(vals['project_id']).get_task_uid()
 
         return super(Task, self).write(vals)
 
