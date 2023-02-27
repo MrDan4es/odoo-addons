@@ -1,5 +1,7 @@
 from odoo import api, fields, models
 
+from .project import Project
+
 
 class Task(models.Model):
     _inherit = 'project.task'
@@ -12,33 +14,31 @@ class Task(models.Model):
         ),
     ]
 
-    task_uid = fields.Char('Код задачи')
+    task_uid = fields.Char('Task code')
     task_history_ids = fields.One2many(
-        'project.uid_history', 'task_id', string='История кодов'
+        'project.task.history', 'task_id', string='History of tasks code'
     )
 
-    def _get_project(self, project_id):
+    def _get_project(self, project_id: int) -> Project:
         return self.env['project.project'].search([('id', '=', project_id)])
 
     @api.model_create_single
-    def create(self, vals):
+    def create(self, vals: dict):
         vals['task_uid'] = self._get_project(vals['project_id']).get_task_uid()
-        
+
         return super(Task, self).create(vals)
 
     def write(self, vals: dict):
-        if (vals.get("project_id") is None
-                or vals['project_id'] == self.project_id.id):  # type: ignore
-            return super(Task, self).write(vals)
+        if vals.get("project_id") and vals['project_id'] != self.project_id.id:
+            if self.task_uid:
+                self.env['project.task.history'].create({
+                    'old_uid': self.task_uid,
+                    'task_id': self.id,
+                })
 
-        if self.task_uid:
-            self.env['project.uid_history'].create({
-                'old_uid': self.task_uid,
-                'task_id': self.id,  # type: ignore
-            })
-            self.env.cr.commit()
-
-        vals['task_uid'] = self._get_project(vals['project_id']).get_task_uid()
+            vals['task_uid'] = self._get_project(
+                vals['project_id']
+            ).get_task_uid()
 
         return super(Task, self).write(vals)
 
@@ -48,7 +48,7 @@ class Task(models.Model):
 
         for task in self:
             prefix = f'[{task.task_uid}] ' if task.task_uid else ''
-            name = prefix + task.name  # type: ignore
-            tasks.append((task.id, name))  # type: ignore
+            name = f'{prefix} {task.name}'
+            tasks.append((task.id, name))
 
         return tasks

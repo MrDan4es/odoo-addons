@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* task_uid
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20230109\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-27 12:07+0000\n"
+"PO-Revision-Date: 2023-02-27 12:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__create_date
+msgid "Created on"
+msgstr "Дата создания"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__display_name
+msgid "Display Name"
+msgstr "Название"
+
+#. module: task_uid
+#: model_terms:ir.ui.view,arch_db:task_uid.project_task_uid_search
+msgid "History of task codes"
+msgstr "История кодов задач"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task__task_history_ids
+msgid "History of tasks code"
+msgstr "История кодов задачи"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__id
+msgid "ID"
+msgstr "ID"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history____last_update
+msgid "Last Modified on"
+msgstr "Изменен"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__write_date
+msgid "Last Updated on"
+msgstr "Дата последнего обновления"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__old_uid
+msgid "Previous task code"
+msgstr "Предыдущий код задачи"
+
+#. module: task_uid
+#: model:ir.model,name:task_uid.model_project_project
+msgid "Project"
+msgstr "Проект"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_project__project_task_sequence
+msgid "Project Task Sequence"
+msgstr "Последовательность кодов проекта"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_project__project_code
+msgid "Project code"
+msgstr "Код проекта"
+
+#. module: task_uid
+#: model:ir.model.constraint,message:task_uid.constraint_project_project_project_code_unique
+msgid "Project with this code already exists!"
+msgstr "Проект с таким кодом уже существует!"
+
+#. module: task_uid
+#: model:ir.model,name:task_uid.model_project_task
+#: model:ir.model.fields,field_description:task_uid.field_project_task_history__task_id
+msgid "Task"
+msgstr "Задача"
+
+#. module: task_uid
+#: model:ir.model.fields,field_description:task_uid.field_project_task__task_uid
+#: model_terms:ir.ui.view,arch_db:task_uid.project_task_uid_search
+msgid "Task code"
+msgstr "Код задачи"
+
+#. module: task_uid
+#: model:ir.model,name:task_uid.model_project_task_history
+msgid "Task tag history model"
+msgstr "Модель истории кодов задач"
+
+#. module: task_uid
+#: model:ir.model.constraint,message:task_uid.constraint_project_task_task_uid_unique
+msgid "Task with this UID already exists!"
+msgstr "Задача с таким кодом уже существует!"
+
+#. module: task_uid
+#: model_terms:ir.ui.view,arch_db:task_uid.project_kanban_create_project
+msgid "code"
+msgstr "Код"

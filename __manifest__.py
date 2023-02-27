@@ -1,12 +1,12 @@
 # type: ignore
 {
     'name': 'task_uid',
-    'version': '1.0',
-    'summary': '',
+    'version': '16.0.0.2',
+    'summary': 'Module for project tags and task uids with history',
     'category': 'Generic Modules/Others',
-    'author': 'MrDan4es',
-    'maintainer': 'MrDan4es',
-    'website': '',
+    'author': 'RYDLAB',
+    'maintainer': 'RYDLAB',
+    'website': 'https://www.rydlab.ru',
     'license': 'GPL-3',
     'depends': [
         'project',
