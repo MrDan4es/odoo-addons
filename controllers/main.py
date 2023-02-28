@@ -1,6 +1,5 @@
 from odoo.http import Controller, request, route
 from werkzeug.exceptions import NotFound
-from werkzeug.utils import redirect
 
 
 class TaskUrlController(Controller):
@@ -23,6 +22,6 @@ class TaskUrlController(Controller):
             task_id = task.id
 
         if task_id:
-            return redirect(f'/web#id={task_id}&model=project.task')
+            return request.redirect(f'/web#id={task_id}&model=project.task')
 
         raise NotFound()
