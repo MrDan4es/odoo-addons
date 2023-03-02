@@ -21,7 +21,14 @@ class TaskUrlController(Controller):
         else:
             task_id = task.id
 
-        if task_id:
-            return request.redirect(f'/web#id={task_id}&model=project.task')
+        if task_id is None:
+            raise NotFound()
+        
+        menu_id = request.env['ir.model.data'].sudo().search(
+            [('name' , '=', 'menu_main_pm')
+        ], limit=1).res_id
+    
+        return request.redirect(
+            f'/web#id={task_id}&model=project.task&menu_id={menu_id}'
+        )
 
-        raise NotFound()
